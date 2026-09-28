@@ -16,69 +16,94 @@ class DetailsScreen extends StatelessWidget {
         title: Text(movie.title),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(20, 8, 20, 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(16),
                 child: Image.asset(
                   movie.posterPath,
-                  height: 350,
+                  height: 380,
                   fit: BoxFit.cover,
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+
+            const SizedBox(height: 24),
 
             Text(
               movie.title,
               style: const TextStyle(
-                fontSize: 28,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 24),
 
-            const Text(
-              'Cast',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+            const Row(
+              children: [
+                Icon(
+                  Icons.people,
+                  color: Colors.redAccent,
+                  size: 22,
+                ),
+                SizedBox(width: 8),
+                Text(
+                  'Cast',
+                  style: TextStyle(
+                    fontSize: 21,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
 
-            const SizedBox(height: 8),
+            const SizedBox(height: 12),
 
             ...movie.cast.map(
               (actor) => Padding(
-                padding: const EdgeInsets.only(bottom: 4),
+                padding: const EdgeInsets.only(bottom: 7),
                 child: Text(
-                  '• $actor',
-                  style: const TextStyle(fontSize: 16),
+                  actor,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.white70,
+                  ),
                 ),
               ),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 22),
 
-            const Text(
-              'Synopsis',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+            const Row(
+              children: [
+                Icon(
+                  Icons.description,
+                  color: Colors.redAccent,
+                  size: 22,
+                ),
+                SizedBox(width: 8),
+                Text(
+                  'Synopsis',
+                  style: TextStyle(
+                    fontSize: 21,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
 
-            const SizedBox(height: 8),
+            const SizedBox(height: 12),
 
             Text(
               movie.synopsis,
               style: const TextStyle(
                 fontSize: 16,
-                height: 1.5,
+                height: 1.6,
+                color: Colors.white70,
               ),
             ),
           ],
